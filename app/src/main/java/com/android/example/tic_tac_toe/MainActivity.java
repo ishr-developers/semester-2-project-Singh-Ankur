@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +22,11 @@ public class MainActivity extends AppCompatActivity {
     int playerTurn = 0;
     boolean[] isBoxChecked = new boolean[9];
 
-public void checkWin() {
-    if()
+public boolean Win() {
+    if(isBoxChecked[0]&&isBoxChecked[1]&&isBoxChecked[2]){
+        return true;
+    }
+    return false;
 }
 // This method does all the actions needed in the box; checking if the box is clicked,
 // making the box unusable, setting the counter token and changing the player turn.
@@ -37,11 +41,12 @@ public void checkWin() {
                 boxView.setText("O");
                 playerTurn = 0;
             }
-            if (isBoxChecked[0]&&isBoxChecked[1]&&isBoxChecked[2]){
-
-            }
+        }
+        if (Win()) {
+            Toast.makeText(getApplicationContext(),"You Won",Toast.LENGTH_SHORT).show();
         }
     }
+
 //This method links itself to a box whenver it is clicked
     public void onBoxClicked(View view) {
         int clickedViewId = view.getId();
