@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     boolean[] isBoxChecked = new boolean[9];
 
 public void checkWin() {
-    if
+    if()
 }
 // This method does all the actions needed in the box; checking if the box is clicked,
 // making the box unusable, setting the counter token and changing the player turn.
