@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
     //TODO: Lets work on the logic of this method.
     public boolean Win() { //TODO: Need to rename method to reflect what it does.
-    
-    if(isBoxChecked[0]&&isBoxChecked[1]&&isBoxChecked[2]){
+
+        if(isBoxChecked[0]&&isBoxChecked[1]&&isBoxChecked[2]){
         return true;
     }
     return false;
