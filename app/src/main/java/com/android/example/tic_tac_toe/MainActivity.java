@@ -1,15 +1,10 @@
 package com.android.example.tic_tac_toe;
 
-import android.support.annotation.DrawableRes;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +17,10 @@ public class MainActivity extends AppCompatActivity {
     int playerTurn = 0;
     boolean[] isBoxChecked = new boolean[9];
 
-public boolean Win() {
+
+    //TODO: Lets work on the logic of this method.
+    public boolean Win() { //TODO: Need to rename method to reflect what it does.
+    
     if(isBoxChecked[0]&&isBoxChecked[1]&&isBoxChecked[2]){
         return true;
     }
