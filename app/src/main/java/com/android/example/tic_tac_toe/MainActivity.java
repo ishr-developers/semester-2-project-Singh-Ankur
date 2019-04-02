@@ -8,16 +8,27 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    int playerTurn = 0;
+    boolean[] isBoxChecked = new boolean[9];
+    String[] tokenXPLace = new String[9];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-    int playerTurn = 0;
-    boolean[] isBoxChecked = new boolean[9];
-    String[] tokenXPLace = new String[9];
-
+    public void endGame() {
+        isBoxChecked[0] = true;
+        isBoxChecked[1] = true;
+        isBoxChecked[2] = true;
+        isBoxChecked[3] = true;
+        isBoxChecked[4] = true;
+        isBoxChecked[5] = true;
+        isBoxChecked[6] = true;
+        isBoxChecked[7] = true;
+        isBoxChecked[8] = true;
+    }
 
     public boolean xWin() {
         if (tokenXPLace[0] == "x" && tokenXPLace[1] == "x" && tokenXPLace[2] == "x") {
@@ -39,11 +50,31 @@ public class MainActivity extends AppCompatActivity {
         } else
         return false;
     }
+    public boolean oWin() {
+        if (tokenXPLace[0] == "o" && tokenXPLace[1] == "o" && tokenXPLace[2] == "o") {
+            return true;
+        } else if (tokenXPLace[3] == "o" && tokenXPLace[4] == "o" && tokenXPLace[5] == "o") {
+            return true;
+        } else if (tokenXPLace[6] == "o" && tokenXPLace[7] == "o" && tokenXPLace[8] == "o") {
+            return true;
+        } else if (tokenXPLace[0] == "o" && tokenXPLace[3] == "o" && tokenXPLace[6] == "o") {
+            return true;
+        } else if (tokenXPLace[2] == "o" && tokenXPLace[5] == "o" && tokenXPLace[7] == "o") {
+            return true;
+        } else if (tokenXPLace[3] == "o" && tokenXPLace[6] == "o" && tokenXPLace[8] == "o") {
+            return true;
+        } else if (tokenXPLace[0] == "o" && tokenXPLace[4] == "o" && tokenXPLace[8] == "o") {
+            return true;
+        } else if (tokenXPLace[2] == "o" && tokenXPLace[4] == "o" && tokenXPLace[6] == "o") {
+            return true;
+        } else
+            return false;
+    }
 
 
 // This method does all the actions needed in the box; checking if the box is clicked,
 // making the box unusable, setting the counter token and changing the player turn.
-        public void useBox ( int id, int boxNumber){
+    public void useBox ( int id, int boxNumber){
             if (!isBoxChecked[boxNumber]) {
                 isBoxChecked[boxNumber] = true;
                 TextView boxView = findViewById(id);
@@ -59,10 +90,15 @@ public class MainActivity extends AppCompatActivity {
             }
             if (xWin()) {
                 Toast.makeText(getApplicationContext(), "Player 1 Won", Toast.LENGTH_SHORT).show();
+                endGame();
+                } else if (oWin()) {
+                Toast.makeText(getApplicationContext(), "Player 2 Won", Toast.LENGTH_SHORT).show();
+                endGame();
+            } else if () {
             }
         }
 
-//This method links itself to a box whenver it is clicked
+//This method links itself to a box whenever it is clicked
         public void onBoxClicked (View view){
             int clickedViewId = view.getId();
             switch (clickedViewId) {
