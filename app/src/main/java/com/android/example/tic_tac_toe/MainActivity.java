@@ -8,15 +8,15 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    int playerTurn = 0;
+    boolean[] isBoxChecked = new boolean[9];
+    String[] tokenPLace = new String[9];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
-    int playerTurn = 0;
-    boolean[] isBoxChecked = new boolean[9];
-    String[] tokenXPLace = new String[9];
 
     public void endgame() {
         int i;
@@ -24,52 +24,47 @@ public class MainActivity extends AppCompatActivity {
             isBoxChecked[i] = true;
         }
     }
-
-
     public boolean xWin() {
-        if (tokenXPLace[0] == "x" && tokenXPLace[1] == "x" && tokenXPLace[2] == "x") {
+        if (tokenPLace[0] == "x" && tokenPLace[1] == "x" && tokenPLace[2] == "x") {
             return true;
-        } else if (tokenXPLace[3] == "x" && tokenXPLace[4] == "x" && tokenXPLace[5] == "x") {
+        } else if (tokenPLace[3] == "x" && tokenPLace[4] == "x" && tokenPLace[5] == "x") {
             return true;
-        } else if (tokenXPLace[6] == "x" && tokenXPLace[7] == "x" && tokenXPLace[8] == "x") {
+        } else if (tokenPLace[6] == "x" && tokenPLace[7] == "x" && tokenPLace[8] == "x") {
             return true;
-        } else if (tokenXPLace[0] == "x" && tokenXPLace[3] == "x" && tokenXPLace[6] == "x") {
+        } else if (tokenPLace[0] == "x" && tokenPLace[3] == "x" && tokenPLace[6] == "x") {
             return true;
-        } else if (tokenXPLace[1] == "x" && tokenXPLace[4] == "x" && tokenXPLace[7] == "x") {
+        } else if (tokenPLace[1] == "x" && tokenPLace[4] == "x" && tokenPLace[7] == "x") {
             return true;
-        } else if (tokenXPLace[2] == "x" && tokenXPLace[5] == "x" && tokenXPLace[8] == "x") {
+        } else if (tokenPLace[2] == "x" && tokenPLace[5] == "x" && tokenPLace[8] == "x") {
             return true;
-        } else if (tokenXPLace[0] == "x" && tokenXPLace[4] == "x" && tokenXPLace[8] == "x") {
+        } else if (tokenPLace[0] == "x" && tokenPLace[4] == "x" && tokenPLace[8] == "x") {
             return true;
-        } else if (tokenXPLace[2] == "x" && tokenXPLace[4] == "x" && tokenXPLace[6] == "x") {
+        } else if (tokenPLace[2] == "x" && tokenPLace[4] == "x" && tokenPLace[6] == "x") {
             return true;
         } else
         return false;
     }
 
     public boolean oWin() {
-        if (tokenXPLace[0] == "o" && tokenXPLace[1] == "o" && tokenXPLace[2] == "o") {
+        if (tokenPLace[0] == "o" && tokenPLace[1] == "o" && tokenPLace[2] == "o") {
             return true;
-        } else if (tokenXPLace[3] == "o" && tokenXPLace[4] == "o" && tokenXPLace[5] == "o") {
+        } else if (tokenPLace[3] == "o" && tokenPLace[4] == "o" && tokenPLace[5] == "o") {
             return true;
-        } else if (tokenXPLace[6] == "o" && tokenXPLace[7] == "o" && tokenXPLace[8] == "o") {
+        } else if (tokenPLace[6] == "o" && tokenPLace[7] == "o" && tokenPLace[8] == "o") {
             return true;
-        } else if (tokenXPLace[0] == "o" && tokenXPLace[3] == "o" && tokenXPLace[6] == "o") {
+        } else if (tokenPLace[0] == "o" && tokenPLace[3] == "o" && tokenPLace[6] == "o") {
             return true;
-        } else if (tokenXPLace[1] == "o" && tokenXPLace[4] == "o" && tokenXPLace[7] == "o") {
+        } else if (tokenPLace[1] == "o" && tokenPLace[4] == "o" && tokenPLace[7] == "o") {
             return true;
-        } else if (tokenXPLace[2] == "o" && tokenXPLace[5] == "o" && tokenXPLace[8] == "o") {
+        } else if (tokenPLace[2] == "o" && tokenPLace[5] == "o" && tokenPLace[8] == "o") {
             return true;
-        } else if (tokenXPLace[0] == "o" && tokenXPLace[4] == "o" && tokenXPLace[8] == "o") {
+        } else if (tokenPLace[0] == "o" && tokenPLace[4] == "o" && tokenPLace[8] == "o") {
             return true;
-        } else if (tokenXPLace[2] == "o" && tokenXPLace[4] == "o" && tokenXPLace[6] == "o") {
+        } else if (tokenPLace[2] == "o" && tokenPLace[4] == "o" && tokenPLace[6] == "o") {
             return true;
         } else
             return false;
     }
-
-
-
     // This method does all the actions needed in the box; checking if the box is clicked,
 // making the box unusable, setting the counter token and changing the player turn.
         public void useBox ( int id, int boxNumber){
@@ -78,11 +73,11 @@ public class MainActivity extends AppCompatActivity {
                 TextView boxView = findViewById(id);
                 if (playerTurn == 0) {
                     boxView.setText("X");
-                    tokenXPLace[boxNumber] = "x";
+                    tokenPLace[boxNumber] = "x";
                     playerTurn = 1;
                 } else {
                     boxView.setText("O");
-                    tokenXPLace[boxNumber] = "o";
+                    tokenPLace[boxNumber] = "o";
                     playerTurn = 0;
                 }
             }
@@ -95,8 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 endgame();
             }
         }
-
-//This method links itself to a box whenver it is clicked
+//This method links itself to a box whenever it is clicked
         public void onBoxClicked (View view){
             int clickedViewId = view.getId();
             switch (clickedViewId) {
@@ -137,13 +131,11 @@ public class MainActivity extends AppCompatActivity {
 
                 case R.id.box8: {
                     useBox(clickedViewId, 7);
-                    //TODO: Check For winners
                     break;
                 }
 
                 case R.id.box9: {
                     useBox(clickedViewId, 8);
-                    //TODO: Check For winners
                     break;
                 }
             }
