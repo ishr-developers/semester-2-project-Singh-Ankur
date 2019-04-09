@@ -11,26 +11,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="8">
+
         <TableRow
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Names:"/>
-            <EditText
-                android:layout_weight="1"/>
+                android:text="Names:" />
+
+            <EditText android:layout_weight="1" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="VS" />
-            <EditText
-                android:layout_weight="1"/>
+
+            <EditText android:layout_weight="1" />
         </TableRow>
 
         <TableRow
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/reset"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="resetBoxes"
+                android:text="Reset" />
+        </TableRow>
     </TableLayout>
 
     <!-- Body of buttons - has 9 weight compared with other layout
@@ -45,14 +56,20 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
-            <TextView style="@style/Box" android:id="@+id/box1"
-                android:onClick="onBoxClicked"/>
+            <TextView
+                android:id="@+id/box1"
+                style="@style/Box"
+                android:onClick="onBoxClicked" />
 
-            <TextView style="@style/Box" android:id="@+id/box2"
-                android:onClick="onBoxClicked"/>
+            <TextView
+                android:id="@+id/box2"
+                style="@style/Box"
+                android:onClick="onBoxClicked" />
 
-            <TextView style="@style/Box" android:id="@+id/box3"
-                android:onClick="onBoxClicked"/>
+            <TextView
+                android:id="@+id/box3"
+                style="@style/Box"
+                android:onClick="onBoxClicked" />
         </TableRow>
 
         <TableRow
@@ -61,16 +78,19 @@
             android:layout_weight="1">
 
             <TextView
-                style="@style/Box" android:id="@+id/box4"
-                android:onClick="onBoxClicked"/>
+                android:id="@+id/box4"
+                style="@style/Box"
+                android:onClick="onBoxClicked" />
 
             <TextView
-                style="@style/Box" android:id="@+id/box5"
-                android:onClick="onBoxClicked"/>
+                android:id="@+id/box5"
+                style="@style/Box"
+                android:onClick="onBoxClicked" />
 
             <TextView
-                style="@style/Box" android:id="@+id/box6"
-                android:onClick="onBoxClicked"/>
+                android:id="@+id/box6"
+                style="@style/Box"
+                android:onClick="onBoxClicked" />
         </TableRow>
 
         <TableRow
@@ -79,16 +99,19 @@
             android:layout_weight="1">
 
             <TextView
-                style="@style/Box" android:id="@+id/box7"
-                android:onClick="onBoxClicked"/>
+                android:id="@+id/box7"
+                style="@style/Box"
+                android:onClick="onBoxClicked" />
 
             <TextView
-                style="@style/Box" android:id="@+id/box8"
-                android:onClick="onBoxClicked"/>
+                android:id="@+id/box8"
+                style="@style/Box"
+                android:onClick="onBoxClicked" />
 
             <TextView
-                style="@style/Box" android:id="@+id/box9"
-                android:onClick="onBoxClicked"/>
+                android:id="@+id/box9"
+                style="@style/Box"
+                android:onClick="onBoxClicked" />
         </TableRow>
     </TableLayout>
 

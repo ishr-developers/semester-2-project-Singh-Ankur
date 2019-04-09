@@ -3,6 +3,7 @@ package com.android.example.tic_tac_toe;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,18 @@ public class MainActivity extends AppCompatActivity {
         int i;
         for(i = 0;i < 9; i++) {
             isBoxChecked[i] = true;
+        }
+    }
+    public boolean checkDraw() {
+        for(boolean b : isBoxChecked)
+            if(!b) return false;
+        return true;
+    }
+    public void resetBoxes(View view) {
+        int i;
+        for(i = 0;i < 9;i++) {
+            isBoxChecked[i] = false;
+            tokenPLace[i] = "a";
         }
     }
     public boolean xWin() {
@@ -88,6 +101,9 @@ public class MainActivity extends AppCompatActivity {
             else if (oWin()) {
                 Toast.makeText(getApplicationContext(), "Player 2 Won", Toast.LENGTH_SHORT).show();
                 endgame();
+            }
+            else if(checkDraw()) {
+                Toast.makeText(getApplicationContext(), "Cat's Game", Toast.LENGTH_SHORT).show();
             }
         }
 //This method links itself to a box whenever it is clicked
