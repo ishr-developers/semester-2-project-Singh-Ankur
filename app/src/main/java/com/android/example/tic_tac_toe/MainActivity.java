@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     int playerTurn = 0;
     boolean[] isBoxChecked = new boolean[9];
-    String[] tokenPLace = new String[9];
+    int[] tokenPLace = new int[9];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,46 +34,65 @@ public class MainActivity extends AppCompatActivity {
         int i;
         for(i = 0;i < 9;i++) {
             isBoxChecked[i] = false;
-            tokenPLace[i] = "a";
+            tokenPLace[i] = 0;
+            playerTurn = 0;
+                TextView boxView = findViewById(R.id.box1);
+                TextView boxView2 = findViewById(R.id.box2);
+                TextView boxView3 = findViewById(R.id.box3);
+                TextView boxView4 = findViewById(R.id.box4);
+                TextView boxView5 = findViewById(R.id.box5);
+                TextView boxView6 = findViewById(R.id.box6);
+                TextView boxView7 = findViewById(R.id.box7);
+                TextView boxView8 = findViewById(R.id.box8);
+                TextView boxView9 = findViewById(R.id.box9);
+                boxView.setText("");
+                boxView2.setText("");
+                boxView3.setText("");
+                boxView4.setText("");
+                boxView5.setText("");
+                boxView6.setText("");
+                boxView7.setText("");
+                boxView8.setText("");
+                boxView9.setText("");
         }
     }
     public boolean xWin() {
-        if (tokenPLace[0] == "x" && tokenPLace[1] == "x" && tokenPLace[2] == "x") {
+        if (tokenPLace[0] + tokenPLace[1] + tokenPLace[2] == 12) {
             return true;
-        } else if (tokenPLace[3] == "x" && tokenPLace[4] == "x" && tokenPLace[5] == "x") {
+        } else if (tokenPLace[3] + tokenPLace[4] + tokenPLace[5] == 12) {
             return true;
-        } else if (tokenPLace[6] == "x" && tokenPLace[7] == "x" && tokenPLace[8] == "x") {
+        } else if (tokenPLace[6] + tokenPLace[7] + tokenPLace[8] == 12) {
             return true;
-        } else if (tokenPLace[0] == "x" && tokenPLace[3] == "x" && tokenPLace[6] == "x") {
+        } else if (tokenPLace[0] + tokenPLace[3] + tokenPLace[6] == 12) {
             return true;
-        } else if (tokenPLace[1] == "x" && tokenPLace[4] == "x" && tokenPLace[7] == "x") {
+        } else if (tokenPLace[1] + tokenPLace[4] + tokenPLace[7] == 12) {
             return true;
-        } else if (tokenPLace[2] == "x" && tokenPLace[5] == "x" && tokenPLace[8] == "x") {
+        } else if (tokenPLace[2] + tokenPLace[5] + tokenPLace[8] == 12) {
             return true;
-        } else if (tokenPLace[0] == "x" && tokenPLace[4] == "x" && tokenPLace[8] == "x") {
+        } else if (tokenPLace[0] + tokenPLace[4] + tokenPLace[8] == 12) {
             return true;
-        } else if (tokenPLace[2] == "x" && tokenPLace[4] == "x" && tokenPLace[6] == "x") {
+        } else if (tokenPLace[2] + tokenPLace[4] + tokenPLace[6] == 12) {
             return true;
         } else
         return false;
     }
 
     public boolean oWin() {
-        if (tokenPLace[0] == "o" && tokenPLace[1] == "o" && tokenPLace[2] == "o") {
+        if (tokenPLace[0] + tokenPLace[1] + tokenPLace[2] == 9) {
             return true;
-        } else if (tokenPLace[3] == "o" && tokenPLace[4] == "o" && tokenPLace[5] == "o") {
+        } else if (tokenPLace[3] + tokenPLace[4] +  tokenPLace[5] == 9) {
             return true;
-        } else if (tokenPLace[6] == "o" && tokenPLace[7] == "o" && tokenPLace[8] == "o") {
+        } else if (tokenPLace[6] +  tokenPLace[7] + tokenPLace[8] == 9) {
             return true;
-        } else if (tokenPLace[0] == "o" && tokenPLace[3] == "o" && tokenPLace[6] == "o") {
+        } else if (tokenPLace[0] + tokenPLace[3] + tokenPLace[6] == 9) {
             return true;
-        } else if (tokenPLace[1] == "o" && tokenPLace[4] == "o" && tokenPLace[7] == "o") {
+        } else if (tokenPLace[1] + tokenPLace[4] +  tokenPLace[7] == 9) {
             return true;
-        } else if (tokenPLace[2] == "o" && tokenPLace[5] == "o" && tokenPLace[8] == "o") {
+        } else if (tokenPLace[2] + tokenPLace[5] + tokenPLace[8] == 9) {
             return true;
-        } else if (tokenPLace[0] == "o" && tokenPLace[4] == "o" && tokenPLace[8] == "o") {
+        } else if (tokenPLace[0] + tokenPLace[4] + tokenPLace[8] == 9) {
             return true;
-        } else if (tokenPLace[2] == "o" && tokenPLace[4] == "o" && tokenPLace[6] == "o") {
+        } else if (tokenPLace[2] + tokenPLace[4] + tokenPLace[6] == 9) {
             return true;
         } else
             return false;
@@ -86,11 +105,11 @@ public class MainActivity extends AppCompatActivity {
                 TextView boxView = findViewById(id);
                 if (playerTurn == 0) {
                     boxView.setText("X");
-                    tokenPLace[boxNumber] = "x";
+                    tokenPLace[boxNumber] = 4;
                     playerTurn = 1;
                 } else {
                     boxView.setText("O");
-                    tokenPLace[boxNumber] = "o";
+                    tokenPLace[boxNumber] = 3;
                     playerTurn = 0;
                 }
             }
