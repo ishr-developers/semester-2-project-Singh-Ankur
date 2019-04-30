@@ -12,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
     int playerTurn = 0;
     boolean[] isBoxChecked = new boolean[9];
     int[] tokenPLace = new int[9];
+    int xWins = 0;
+    int oWins = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,14 @@ public class MainActivity extends AppCompatActivity {
             if(!b) return false;
         return true;
     }
-    public void resetBoxes(View view) {
+    public void resetScore(View view) {
+        clearBoxes(view);
+        xWins = -1;
+        oWins = -1;
+        changeP1();
+        changeP2();
+    }
+    public void clearBoxes(View view) {
         int i;
         for(i = 0;i < 9;i++) {
             isBoxChecked[i] = false;
@@ -56,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 boxView9.setText("");
         }
     }
-    public boolean xWin() {
+    public boolean xWinCheck() {
         if (tokenPLace[0] + tokenPLace[1] + tokenPLace[2] == 12) {
             return true;
         } else if (tokenPLace[3] + tokenPLace[4] + tokenPLace[5] == 12) {
@@ -77,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    public boolean oWin() {
+    public boolean oWinCheck() {
         if (tokenPLace[0] + tokenPLace[1] + tokenPLace[2] == 9) {
             return true;
         } else if (tokenPLace[3] + tokenPLace[4] +  tokenPLace[5] == 9) {
@@ -97,6 +106,18 @@ public class MainActivity extends AppCompatActivity {
         } else
             return false;
     }
+
+    public void changeP1() {
+        xWins++;
+        TextView p1Score = findViewById(R.id.player1Score);
+        p1Score.setText(Integer.toString(xWins));
+    }
+
+    public void changeP2() {
+        oWins++;
+        TextView p2Score = findViewById(R.id.player2Score);
+        p2Score.setText(Integer.toString(oWins));
+    }
     // This method does all the actions needed in the box; checking if the box is clicked,
 // making the box unusable, setting the counter token and changing the player turn.
         public void useBox ( int id, int boxNumber){
@@ -113,11 +134,13 @@ public class MainActivity extends AppCompatActivity {
                     playerTurn = 0;
                 }
             }
-            if (xWin()) {
+            if (xWinCheck()) {
+                changeP1();
                 Toast.makeText(getApplicationContext(), "Player 1 Won", Toast.LENGTH_SHORT).show();
                 endgame();
             }
-            else if (oWin()) {
+            else if (oWinCheck()) {
+                changeP2();
                 Toast.makeText(getApplicationContext(), "Player 2 Won", Toast.LENGTH_SHORT).show();
                 endgame();
             }

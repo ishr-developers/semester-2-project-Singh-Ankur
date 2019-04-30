@@ -33,6 +33,7 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/player1Score"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -41,6 +42,7 @@
                 android:textAlignment="center"/>
 
             <TextView
+                android:id="@+id/player2Score"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -65,10 +67,16 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:id="@+id/reset"
+                android:id="@+id/clear"
                 android:layout_weight="1"
-                android:onClick="resetBoxes"
-                android:text="Reset" />
+                android:onClick="clearBoxes"
+                android:text="Clear" />
+            <Button
+                android:layout_weight="1"
+                android:text="Reset all"
+                android:onClick="resetScore"
+                />
+
         </TableRow>
 
         <TableRow android:layout_weight="1">
