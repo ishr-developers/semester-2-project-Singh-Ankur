@@ -10,7 +10,8 @@
         android:id="@+id/Header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="8">
+        android:layout_weight="8"
+        android:background="@color/bLueColour">
 
         <TableRow
             android:layout_width="match_parent"
@@ -18,16 +19,21 @@
 
             <EditText android:layout_weight="1"
                 android:inputType="textPersonName"
-                android:cursorVisible="false"/>
+                android:cursorVisible="false"
+                android:textSize="16sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="VS" />
+                android:text="VS"
+                android:textSize="24sp"
+                android:textAlignment="center"
+                />
 
             <EditText android:layout_weight="1"
                 android:inputType="textPersonName"
-                android:cursorVisible="false"/>
+                android:cursorVisible="false"
+                android:textSize="16sp"/>
 
         </TableRow>
 
@@ -39,18 +45,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textSize="64sp"
+                android:textSize="72sp"
                 android:text="0"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:background="@color/orangeColour"
+                android:layout_margin="8dp"/>
 
             <TextView
                 android:id="@+id/player2Score"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textSize="64sp"
+                android:textSize="72sp"
                 android:text="0"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:background="@color/orangeColour"
+                android:layout_margin="8dp"/>
         </TableRow>
 
 
@@ -66,17 +76,24 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/bLueColour">
 
             <Button
                 android:id="@+id/clear"
                 android:layout_weight="1"
                 android:onClick="clearBoxes"
-                android:text="Clear" />
+                android:text="Clear"
+                android:textSize="16sp"
+                android:background="@color/orangeColour"
+                android:layout_margin="8dp"/>
             <Button
                 android:layout_weight="1"
                 android:text="Reset all"
                 android:onClick="resetScore"
+                android:textSize="16sp"
+                android:background="@color/orangeColour"
+                android:layout_margin="8dp"
                 />
 
         </TableRow>
